@@ -1,7 +1,12 @@
-import React from "react";
+import React from 'react';
+import Layout from './components/Layout';
 
 function App() {
-  return <div></div>;
+  return (
+    <Layout>
+      <div>Content</div>
+    </Layout>
+  );
 }
 
 export default App;
