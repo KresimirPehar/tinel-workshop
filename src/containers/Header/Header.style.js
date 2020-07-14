@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import { sizeMixin, flexMixin } from '../../utils/style/mixins.style';
 
 const Container = styled.div`
-  width: 100vw;
-  height: 70px;
+  ${sizeMixin('100vw', '70px')}
   position: fixed;
   display: flex;
   background-color: ${colors.primary};
@@ -14,10 +14,8 @@ const LogoContainer = styled.div`
 `;
 
 const Content = styled.div`
+  ${flexMixin('center', 'space-between')}
   width: 85%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
   margin-left: 20px;
 `;
 

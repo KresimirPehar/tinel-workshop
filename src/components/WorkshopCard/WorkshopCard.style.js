@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import StyledButton from '../../utils/style/components.style';
+import { sizeMixin, flexMixin } from '../../utils/style/mixins.style';
 
 const Container = styled.div`
-  width: 250px;
-  height: 300px;
+  ${sizeMixin('250px', '300px')}
   box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
   border-radius: 8px;
   border: 1px solid black;
@@ -14,10 +15,9 @@ const ImageContainer = styled.div`
 `;
 
 const Content = styled.div`
+  ${sizeMixin('80%', '60%')}
   display: flex;
   flex-direction: column;
-  width: 80%;
-  height: 60%;
   margin: 0 auto;
 `;
 
@@ -28,11 +28,10 @@ const Details = styled.div`
 `;
 
 const Category = styled.div`
+  ${sizeMixin('24px', '24px')}
   position: absolute;
   top: -10px;
   right: 0;
-  width: 24px;
-  height: 24px;
 `;
 
 const DateTime = styled.div`
@@ -42,8 +41,7 @@ const DateTime = styled.div`
 `;
 
 const Date = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexMixin('center')};
   margin-right: 10px;
   font-weight: bold;
 
@@ -53,8 +51,7 @@ const Date = styled.div`
 `;
 
 const Time = styled.div`
-  display: flex;
-  align-items: center;
+  ${flexMixin('center')};
   font-weight: bold;
 
   img {
@@ -80,21 +77,8 @@ const Price = styled.div`
   }
 `;
 
-const AddButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 50px;
+const AddButton = styled(StyledButton)`
   background-color: ${colors.primary};
-  box-shadow: 1px 2px 8px rgba(127, 127, 127, 0.25);
-  border-radius: 6px;
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 20px;
-  cursor: pointer;
-  :hover {
-    filter: brightness(85%);
-  }
 `;
 
 export {
