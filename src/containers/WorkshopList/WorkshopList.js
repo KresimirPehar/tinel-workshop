@@ -1,7 +1,8 @@
 import React from 'react';
+import WorkshopCard from '../../components/WorkshopCard';
 
 const WorkshopList = () => {
-  return <div>Workshops</div>;
+  return <WorkshopCard />;
 };
 
 export default WorkshopList;

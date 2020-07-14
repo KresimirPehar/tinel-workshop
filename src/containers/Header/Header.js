@@ -7,8 +7,8 @@ import {
   CartTitle,
   CartContainer,
 } from './Header.style';
-import logoIcon from '../../assets/logoIcon.svg';
-import cartIcon from '../../assets/cartIcon.svg';
+import logoIcon from '../../assets/logo.svg';
+import cartIcon from '../../assets/cart.svg';
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
