@@ -9,6 +9,7 @@ import {
 } from './Header.style';
 import logoIcon from '../../assets/logo.svg';
 import cartIcon from '../../assets/cart.svg';
+import CheckoutCart from '../CheckoutCart';
 
 const Header = () => {
   const [isCartOpen, setIsCartOpen] = useState(false);
@@ -27,7 +28,7 @@ const Header = () => {
         </CartStatus>
       </Content>
       <CartContainer isCartOpen={isCartOpen}>
-        {isCartOpen && <div>Cart</div>}
+        {isCartOpen && <CheckoutCart />}
       </CartContainer>
     </Container>
   );
