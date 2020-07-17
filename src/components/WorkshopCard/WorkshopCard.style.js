@@ -4,14 +4,33 @@ import StyledButton from '../../utils/style/components.style';
 import { sizeMixin, flexMixin } from '../../utils/style/mixins.style';
 
 const Container = styled.div`
-  ${sizeMixin('250px', '300px')}
-  box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
+  width: 33%;
+`;
+
+const CardContainer = styled.div`
+  ${sizeMixin('300px', '350px')}
+  border: 1px solid #F2F2F2;
   border-radius: 8px;
-  border: 1px solid black;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0;
+  position: relative;
+  top: 0;
+  transition: box-shadow 1s, top 0.4s;
+
+  :hover {
+    top: -10px;
+    box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
+  }
 `;
 
 const ImageContainer = styled.div`
   height: 40%;
+  cursor: pointer;
+`;
+
+const BackgroundImage = styled.img`
+  ${sizeMixin('100%', '100%')};
 `;
 
 const Content = styled.div`
@@ -36,7 +55,7 @@ const Category = styled.div`
 
 const DateTime = styled.div`
   display: flex;
-  margin-bottom: 10px;
+  margin: 5px 0 10px;
   font-size: 12px;
 `;
 
@@ -64,6 +83,7 @@ const Title = styled.div`
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 10px;
+  cursor: pointer;
 `;
 
 const Price = styled.div`
@@ -83,10 +103,12 @@ const AddButton = styled(StyledButton)`
 
 export {
   Container,
+  CardContainer,
+  ImageContainer,
+  BackgroundImage,
   Content,
   Details,
   Category,
-  ImageContainer,
   DateTime,
   Date,
   Time,

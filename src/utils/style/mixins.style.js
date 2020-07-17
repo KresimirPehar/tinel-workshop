@@ -1,6 +1,6 @@
 const flexMixin = (alignItems = 'unset', justifyContent = 'unset') => `
     display: flex;
-    align-items: ${alignItems}
+    align-items: ${alignItems};
     justify-content: ${justifyContent};
 `;
 
