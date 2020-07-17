@@ -1,0 +1,1 @@
+export const GET_WORKSHOPS = 'GET_WORKSHOPS';
