@@ -7,6 +7,7 @@ const Container = styled.div`
   position: fixed;
   display: flex;
   background-color: ${colors.primary};
+  z-index: 1;
 `;
 
 const LogoContainer = styled.div`
