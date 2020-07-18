@@ -4,13 +4,14 @@ import StyledButton from '../../utils/style/components.style';
 import { sizeMixin, flexMixin } from '../../utils/style/mixins.style';
 
 const Container = styled.div`
-  width: 33%;
+  flex-basis: 33.333333%;
 `;
 
 const CardContainer = styled.div`
   ${sizeMixin('300px', '350px')}
-  border: 1px solid #F2F2F2;
+  border: 1px solid #f2f2f2;
   border-radius: 8px;
+  margin-right: 20px;
   margin-bottom: 20px;
   overflow: hidden;
   box-shadow: 0;
