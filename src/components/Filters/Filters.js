@@ -1,18 +1,28 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { Container, Title, FilterList } from './Filters.style';
-import filterIcons from '../../assets/filters/index';
 import Filter from '../Filter';
+import applyFilter from '../../redux/actions/filterActions';
 
 const Filters = () => {
+  const filters = useSelector((state) => state.filters);
+  const dispatch = useDispatch();
+
+  const filterHandler = useCallback((label) => dispatch(applyFilter(label)), [
+    dispatch,
+  ]);
+
   return (
     <Container>
-      <Title>Filter by category</Title>
+      <Title>Filter by category:</Title>
       <FilterList>
-        {Object.keys(filterIcons).map((item, id) => (
+        {filters.map((item, id) => (
           <Filter
             key={id.toString()}
-            label={item}
-            SVGIcon={filterIcons[item]}
+            label={item.label}
+            SVGIcon={item.Icon}
+            isActive={item.isActive}
+            filterHandler={filterHandler}
           />
         ))}
       </FilterList>

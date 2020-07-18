@@ -1,1 +1,3 @@
 export const GET_WORKSHOPS = 'GET_WORKSHOPS';
+
+export const APPLY_FILTER = 'APPLY_FILTER';
