@@ -8,7 +8,7 @@ const Container = styled.div`
 
 const Title = styled.div`
   align-self: flex-end;
-  margin-bottom: 38px;
+  margin-bottom: 35px;
   margin-left: 60px;
   color: ${colors.font_lighter};
   font-weight: bold;
