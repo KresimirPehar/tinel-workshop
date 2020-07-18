@@ -1,19 +1,35 @@
 import styled from 'styled-components';
+import colors from '../../constants/colors';
 
 const Container = styled.div`
+  width: 150px;
   display: flex;
   cursor: pointer;
   margin-bottom: 20px;
   margin-left: 20px;
 
   svg {
-    margin-right: 10px;
+    width: 35px;
+    grid-column: 1;
+  }
+
+  path {
+    fill: ${(props) => props.isActive && colors.secondary};
   }
 `;
 
-const Label = styled.div`
-  font-weight: bold;
-  align-self: flex-end;
+const Grid = styled.div`
+  display: grid;
+  grid-template-columns: 40px 1fr;
 `;
 
-export { Container, Label };
+const Label = styled.div`
+  grid-column: 2;
+  font-weight: bold;
+  align-self: flex-end;
+  color: ${(props) => props.isActive && colors.secondary};
+  text-decoration: ${(props) => props.isActive && 'underline'};
+  transition: color 0.3s linear, text-decoration 0.3s linear;
+`;
+
+export { Container, Grid, Label };

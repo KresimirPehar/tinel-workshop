@@ -1,11 +1,15 @@
 import React from 'react';
-import { Container, Label } from './Filter.style';
+import { Container, Grid, Label } from './Filter.style';
 
-const Filter = ({ SVGIcon, label }) => {
+const Filter = ({ SVGIcon, label, isActive, filterHandler }) => {
+  const onFilterClick = () => filterHandler(label);
+
   return (
-    <Container>
-      {SVGIcon && <SVGIcon />}
-      <Label>{label}</Label>
+    <Container isActive={isActive} onClick={onFilterClick}>
+      <Grid>
+        {SVGIcon && <SVGIcon />}
+        <Label isActive={isActive}>{label}</Label>
+      </Grid>
     </Container>
   );
 };
