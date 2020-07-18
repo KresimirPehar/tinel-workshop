@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import colors from '../../constants/colors';
 
 const Grid = styled.div`
   display: grid;
@@ -20,9 +21,11 @@ const Title = styled.h1`
 const WorkshopsCounter = styled.div`
   grid-row: 1;
   margin-top: -20px;
+  color: ${colors.font_lighter};
+  font-weight: bold;
 
   span {
-    font-weight: bold;
+    color: #000;
   }
 `;
 

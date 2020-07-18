@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
 import { Container } from './App.style';
 import Filters from './components/Filters';
-import WorkshopList from './containers/WorkshopList';
+import Workshops from './containers/Workshops';
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
           <Switch>
             <Route path='/'>
               <Filters />
-              <WorkshopList />
+              <Workshops />
             </Route>
           </Switch>
         </Router>

@@ -12,7 +12,7 @@ export const initialState = {
   },
 };
 
-const getWorkShops = (state, payload) => ({
+const getWorkshops = (state, payload) => ({
   ...state,
   workshopsData: {
     ...payload,
@@ -22,7 +22,7 @@ const getWorkShops = (state, payload) => ({
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_WORKSHOPS:
-      return getWorkShops(state, action.payload);
+      return getWorkshops(state, action.payload);
     default:
       return state;
   }

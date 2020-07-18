@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import WorkshopCard from '../../components/WorkshopCard';
-import { getWorkShops } from '../../redux/actions/workshopActions';
+import { getWorkshops } from '../../redux/actions/workshopsActions';
 import {
   Grid,
   Info,
@@ -10,14 +10,14 @@ import {
   WorkshopsCounter,
   List,
   LoadMore,
-} from './WorkshopList.style';
+} from './Workshops.style';
 
-const WorkshopList = () => {
+const Workshops = () => {
   const workshops = useSelector((state) => state.workshops.workshopsData);
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getWorkShops());
+    dispatch(getWorkshops());
   }, [dispatch]);
 
   return (
@@ -46,4 +46,4 @@ const WorkshopList = () => {
   );
 };
 
-export default WorkshopList;
+export default Workshops;
