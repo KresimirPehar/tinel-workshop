@@ -37,6 +37,7 @@ const Workshops = () => {
               price={workshops[item].price}
               imageUrl={workshops[item].imageUrl}
               dateTime={workshops[item].date}
+              category={workshops[item].category}
             />
           ))}
           {Object.keys(workshops).length > 8 && <LoadMore>Load More</LoadMore>}

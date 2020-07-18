@@ -17,9 +17,12 @@ import {
 import dateIcon from '../../assets/date.svg';
 import timeIcon from '../../assets/time.svg';
 import getDateAndTime from '../../utils/helpers';
+import filterIcons from '../../assets/filters/index';
 
 const WorkshopCard = ({ title, price, dateTime, category, imageUrl }) => {
   const { date, time } = getDateAndTime(dateTime);
+
+  const Icon = filterIcons[category];
 
   return (
     <Container>
@@ -29,9 +32,7 @@ const WorkshopCard = ({ title, price, dateTime, category, imageUrl }) => {
         </ImageContainer>
         <Content>
           <Details>
-            <Category>
-              <img alt='workshop category' />
-            </Category>
+            <Category>{Icon && <Icon />}</Category>
             <DateTime>
               <Date>
                 <img alt='date' src={dateIcon} />

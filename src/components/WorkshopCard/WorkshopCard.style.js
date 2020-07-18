@@ -49,9 +49,25 @@ const Details = styled.div`
 
 const Category = styled.div`
   ${sizeMixin('24px', '24px')}
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000;
   position: absolute;
   top: -10px;
-  right: 0;
+  right: -15px;
+  border-radius: 6px;
+
+  svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  path {
+    fill: #fff;
+  }
 `;
 
 const DateTime = styled.div`

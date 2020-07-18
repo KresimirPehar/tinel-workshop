@@ -4,9 +4,9 @@ import BackendFilterIcon from './BackendFilterIcon';
 import MarketingFilterIcon from './MarketingFilterIcon';
 
 export default {
-  All: null,
-  Design: DesignFilterIcon,
-  Frontend: FrontendFilterIcon,
-  Backend: BackendFilterIcon,
-  Marketing: MarketingFilterIcon,
+  all: null,
+  design: DesignFilterIcon,
+  frontend: FrontendFilterIcon,
+  backend: BackendFilterIcon,
+  marketing: MarketingFilterIcon,
 };
