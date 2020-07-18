@@ -1,6 +1,6 @@
 import React from 'react';
 
-const FrontentFilterIcon = () => {
+const FrontendFilterIcon = () => {
   return (
     <div>
       <svg
@@ -19,4 +19,4 @@ const FrontentFilterIcon = () => {
   );
 };
 
-export default FrontentFilterIcon;
+export default FrontendFilterIcon;

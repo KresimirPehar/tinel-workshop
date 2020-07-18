@@ -1,4 +1,4 @@
-import FrontendFilterIcon from './FrontentFilterIcon';
+import FrontendFilterIcon from './FrontendFilterIcon';
 import DesignFilterIcon from './DesignFilterIcon';
 import BackendFilterIcon from './BackendFilterIcon';
 import MarketingFilterIcon from './MarketingFilterIcon';
