@@ -1,33 +1,35 @@
-import { GET_WORKSHOPS, GET_FILTERED_WORKSHOPS } from '../actions/types';
+import {
+  GET_WORKSHOPS_REQUEST,
+  GET_WORKSHOPS_FAILURE,
+  GET_WORKSHOPS_SUCCESS,
+  GET_FILTERED_WORKSHOPS,
+} from '../actions/types';
 
 export const initialState = {
-  workshopsData: {
-    0: {
-      id: '',
-      title: '',
-      price: '',
-      imageUrl: '',
-      dateTime: '',
-      category: '',
-    },
-  },
-  filteredWorkshopsData: {
-    0: {
-      id: '',
-      title: '',
-      price: '',
-      imageUrl: '',
-      dateTime: '',
-      category: '',
-    },
-  },
+  workshopsData: {},
+  filteredWorkshopsData: {},
+  isLoading: false,
+  isError: false,
 };
 
-const getWorkshops = (state, data) => ({
+const getWorkshopsRequest = (state) => ({
+  ...state,
+  isLoading: true,
+});
+
+const getWorkshopsFailure = (state) => ({
+  ...state,
+  isLoading: false,
+  isError: true,
+});
+
+const getWorkshopsSuccess = (state, data) => ({
   ...state,
   workshopsData: {
     ...data,
   },
+  isLoading: false,
+  isError: false,
 });
 
 const getFilteredWorkshops = (state, filter) => {
@@ -50,8 +52,12 @@ const getFilteredWorkshops = (state, filter) => {
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case GET_WORKSHOPS:
-      return getWorkshops(state, action.data);
+    case GET_WORKSHOPS_REQUEST:
+      return getWorkshopsRequest(state);
+    case GET_WORKSHOPS_FAILURE:
+      return getWorkshopsFailure(state);
+    case GET_WORKSHOPS_SUCCESS:
+      return getWorkshopsSuccess(state, action.data);
     case GET_FILTERED_WORKSHOPS:
       return getFilteredWorkshops(state, action.filter);
     default:

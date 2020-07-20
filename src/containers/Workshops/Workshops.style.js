@@ -1,5 +1,16 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import { flexMixin } from '../../utils/style/mixins.style';
+
+const LoadingSpinnerContainer = styled.div`
+  ${flexMixin('center', 'center')};
+  height: 50vh;
+  margin-right: 300px;
+
+  div {
+    border-color: ${colors.secondary} ${colors.secondary} transparent;
+  }
+`;
 
 const Grid = styled.div`
   display: grid;
@@ -38,4 +49,13 @@ const List = styled.div`
 
 const LoadMore = styled.div``;
 
-export { Grid, Info, Container, Title, WorkshopsCounter, List, LoadMore };
+export {
+  LoadingSpinnerContainer,
+  Grid,
+  Info,
+  Container,
+  Title,
+  WorkshopsCounter,
+  List,
+  LoadMore,
+};
