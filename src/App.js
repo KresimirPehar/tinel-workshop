@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
-import { Container } from './App.style';
+import Container from './App.style';
 import Filters from './components/Filters';
 import Workshops from './containers/Workshops';
 
-function App() {
+const App = () => {
   return (
     <Layout>
       <Container>
@@ -20,6 +20,6 @@ function App() {
       </Container>
     </Layout>
   );
-}
+};
 
 export default App;

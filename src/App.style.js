@@ -5,6 +5,4 @@ const Container = styled.div`
   grid-template-columns: 30% 70%;
 `;
 
-const content = styled.div``;
-
-export { Container, content };
+export default Container;
