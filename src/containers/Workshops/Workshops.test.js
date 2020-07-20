@@ -55,4 +55,20 @@ describe('Workshops component', () => {
     render(<Workshops />);
     expect(screen.queryByText(/load more/gi)).not.toBeInTheDocument();
   });
+
+  it('should return filtered workshops when applied filter is different than "all"', () => {
+    useSelector.mockImplementation((state) =>
+      state({
+        workshops: {
+          workshopsData: getWorkshopItems(3),
+          filteredWorkshopsData: getWorkshopItems(2),
+        },
+        filters: {
+          appliedFilter: 'design',
+        },
+      })
+    );
+    render(<Workshops />);
+    expect(screen.getByText(/displayed/gi)).toHaveTextContent(2);
+  });
 });
