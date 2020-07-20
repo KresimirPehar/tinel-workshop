@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import WorkshopCard from '../../components/WorkshopCard';
-import { getWorkshops } from '../../redux/actions/workshopsActions';
+import {
+  getWorkshops,
+  getFilteredWorkshops,
+} from '../../redux/actions/workshopsActions';
 import {
   Grid,
   Info,
@@ -13,12 +16,27 @@ import {
 } from './Workshops.style';
 
 const Workshops = () => {
-  const workshops = useSelector((state) => state.workshops.workshopsData);
+  const allWorkshops = useSelector((state) => state.workshops.workshopsData);
+  const filteredWorkshops = useSelector(
+    (state) => state.workshops.filteredWorkshopsData
+  );
+  const filter = useSelector((state) => state.filters.appliedFilter);
   const dispatch = useDispatch();
 
   useEffect(() => {
+    // fetch all workshops initially
     dispatch(getWorkshops());
   }, [dispatch]);
+
+  useEffect(() => {
+    // fetch filtered workshops in case of some filter
+    if (filter !== 'all') dispatch(getFilteredWorkshops(filter));
+  }, [filter, dispatch]);
+
+  const displayedWorkshops = useMemo(
+    () => (filter === 'all' ? allWorkshops : filteredWorkshops),
+    [filteredWorkshops, allWorkshops, filter]
+  );
 
   return (
     <Container>
@@ -26,21 +44,23 @@ const Workshops = () => {
         <Info>
           <Title>Workshops</Title>
           <WorkshopsCounter>
-            Displayed: <span>{Object.keys(workshops).length}</span>
+            Displayed: <span>{Object.keys(displayedWorkshops).length}</span>
           </WorkshopsCounter>
         </Info>
         <List>
-          {Object.keys(workshops).map((item, id) => (
+          {Object.keys(displayedWorkshops).map((item, id) => (
             <WorkshopCard
               key={id.toString()}
-              title={workshops[item].title}
-              price={workshops[item].price}
-              imageUrl={workshops[item].imageUrl}
-              dateTime={workshops[item].date}
-              category={workshops[item].category}
+              title={displayedWorkshops[item].title}
+              price={displayedWorkshops[item].price}
+              imageUrl={displayedWorkshops[item].imageUrl}
+              dateTime={displayedWorkshops[item].date}
+              category={displayedWorkshops[item].category}
             />
           ))}
-          {Object.keys(workshops).length > 8 && <LoadMore>Load More</LoadMore>}
+          {Object.keys(displayedWorkshops).length > 8 && (
+            <LoadMore>Load More</LoadMore>
+          )}
         </List>
       </Grid>
     </Container>

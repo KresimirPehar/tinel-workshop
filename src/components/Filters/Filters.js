@@ -5,7 +5,7 @@ import Filter from '../Filter';
 import applyFilter from '../../redux/actions/filterActions';
 
 const Filters = () => {
-  const filters = useSelector((state) => state.filters);
+  const filters = useSelector((state) => state.filters.filtersData);
   const dispatch = useDispatch();
 
   const filterHandler = useCallback((label) => dispatch(applyFilter(label)), [

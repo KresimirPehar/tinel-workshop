@@ -4,37 +4,40 @@ import BackendFilterIcon from '../../assets/filters/BackendFilterIcon';
 import MarketingFilterIcon from '../../assets/filters/MarketingFilterIcon';
 import { APPLY_FILTER } from '../actions/types';
 
-const initialState = [
-  {
-    label: 'All',
-    Icon: null,
-    isActive: false,
-  },
-  {
-    label: 'Design',
-    Icon: DesignFilterIcon,
-    isActive: false,
-  },
-  {
-    label: 'Frontend',
-    Icon: FrontendFilterIcon,
-    isActive: false,
-  },
-  {
-    label: 'Backend',
-    Icon: BackendFilterIcon,
-    isActive: false,
-  },
-  {
-    label: 'Marketing',
-    Icon: MarketingFilterIcon,
-    isActive: false,
-  },
-];
+const initialState = {
+  filtersData: [
+    {
+      label: 'All',
+      Icon: null,
+      isActive: true,
+    },
+    {
+      label: 'Design',
+      Icon: DesignFilterIcon,
+      isActive: false,
+    },
+    {
+      label: 'Frontend',
+      Icon: FrontendFilterIcon,
+      isActive: false,
+    },
+    {
+      label: 'Backend',
+      Icon: BackendFilterIcon,
+      isActive: false,
+    },
+    {
+      label: 'Marketing',
+      Icon: MarketingFilterIcon,
+      isActive: false,
+    },
+  ],
+  appliedFilter: 'all',
+};
 
 const applyFilter = (state, filter) => {
-  const newState = state.map((item) => {
-    // apply/reset the filter
+  const newFiltersData = state.filtersData.map((item) => {
+    // apply the filter
     if (item.label === filter)
       return {
         ...item,
@@ -48,7 +51,10 @@ const applyFilter = (state, filter) => {
       };
     return item;
   });
-  return newState;
+  return {
+    filtersData: [...newFiltersData],
+    appliedFilter: filter !== state.appliedFilter && filter.toLowerCase(),
+  };
 };
 
 const reducer = (state = initialState, action) => {
