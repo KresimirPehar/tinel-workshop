@@ -4,6 +4,7 @@ import colors from '../../constants/colors';
 const Container = styled.div`
   width: 150px;
   display: flex;
+  align-items: center;
   cursor: pointer;
   margin-bottom: 20px;
   margin-left: 20px;
@@ -24,6 +25,7 @@ const Grid = styled.div`
 `;
 
 const Label = styled.div`
+  height: 24px;
   grid-column: 2;
   font-weight: bold;
   align-self: flex-end;
