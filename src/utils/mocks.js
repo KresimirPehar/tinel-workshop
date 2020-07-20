@@ -19,7 +19,7 @@ const getWorkshopItems = (number) => {
       },
     };
   }
-  return workshopState;
+  return workshopState.workshops.workshopsData;
 };
 
 export default getWorkshopItems;
