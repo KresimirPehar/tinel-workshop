@@ -6,6 +6,7 @@ const Container = styled.div`
   ${flexMixin('center')}
   height: 30px;
   background-color: ${colors.shadow};
+  grid-column: 1/3;
 `;
 
 const Content = styled.div`

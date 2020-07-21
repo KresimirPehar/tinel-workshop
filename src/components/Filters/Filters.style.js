@@ -4,6 +4,7 @@ import colors from '../../constants/colors';
 const Container = styled.div`
   display: grid;
   grid-template-rows: 130px 1fr;
+  height: calc(100vh - 100px);
 `;
 
 const Title = styled.div`
