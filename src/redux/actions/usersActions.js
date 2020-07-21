@@ -20,11 +20,12 @@ const getWorkshopUserSuccess = (name) => ({
 
 const getWorkshopUser = (id) => async (dispatch) => {
   dispatch(getWorkshopUserRequest());
-  const { data, statusText } = await axios.get(`/users/${id}`);
-  if (statusText !== 'OK') {
+  try {
+    const { data } = await axios.get(`/users/${id}`);
+    return dispatch(getWorkshopUserSuccess(data.name));
+  } catch {
     return dispatch(getWorkshopUserFailure());
   }
-  return dispatch(getWorkshopUserSuccess(data.name));
 };
 
 export default getWorkshopUser;

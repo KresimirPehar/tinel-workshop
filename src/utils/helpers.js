@@ -12,4 +12,16 @@ const getDateAndTime = (input) => {
   };
 };
 
-export default getDateAndTime;
+const filterByCategory = (workshops, filter) => {
+  const filteredWorkshops = Object.keys(workshops).reduce((obj, key) => {
+    if (filter.includes(workshops[key].category)) {
+      const initElement = obj;
+      initElement[key] = workshops[key];
+      return initElement;
+    }
+    return obj;
+  }, {});
+  return filteredWorkshops;
+};
+
+export { getDateAndTime, filterByCategory };

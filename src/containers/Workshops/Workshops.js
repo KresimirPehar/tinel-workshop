@@ -53,15 +53,17 @@ const Workshops = () => {
             </WorkshopsCounter>
           </Info>
           <List>
-            {Object.keys(displayedWorkshops).map((item, id) => (
+            {Object.keys(displayedWorkshops).map((item, key) => (
               <WorkshopCard
-                key={id.toString()}
+                key={key.toString()}
                 id={displayedWorkshops[item].id}
+                userId={displayedWorkshops[item].userId}
                 title={displayedWorkshops[item].title}
                 price={displayedWorkshops[item].price}
                 imageUrl={displayedWorkshops[item].imageUrl}
                 dateTime={displayedWorkshops[item].date}
                 category={displayedWorkshops[item].category}
+                desc={displayedWorkshops[item].desc}
               />
             ))}
             {Object.keys(displayedWorkshops).length > 8 && (

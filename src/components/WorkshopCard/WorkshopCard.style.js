@@ -9,6 +9,7 @@ const Container = styled.div`
 
 const CardContainer = styled.div`
   ${sizeMixin('300px', '350px')}
+  background-color: #fff;
   border: 1px solid #f2f2f2;
   border-radius: 8px;
   margin-right: 20px;
@@ -52,12 +53,8 @@ const Details = styled.div`
 `;
 
 const Category = styled.div`
-  ${sizeMixin('24px', '24px')}
-  width: 30px;
-  height: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  ${sizeMixin('30px', '30px')}
+  ${flexMixin('center', 'center')}
   background-color: #000;
   position: absolute;
   top: -10px;

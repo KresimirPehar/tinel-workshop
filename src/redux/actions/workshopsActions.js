@@ -4,6 +4,7 @@ import {
   GET_WORKSHOPS_SUCCESS,
   GET_WORKSHOPS_FAILURE,
   GET_FILTERED_WORKSHOPS,
+  GET_SIMILAR_WORKSHOPS,
 } from './types';
 
 const getWorkshopsRequest = () => ({
@@ -24,13 +25,20 @@ const getFilteredWorkshops = (filter) => ({
   filter,
 });
 
+const getSimilarWorkshops = (filter, currentId) => ({
+  type: GET_SIMILAR_WORKSHOPS,
+  filter,
+  currentId,
+});
+
 const getWorkshops = () => async (dispatch) => {
   dispatch(getWorkshopsRequest());
-  const { data, statusText } = await axios.get('/workshops');
-  if (statusText !== 'OK') {
+  try {
+    const { data } = await axios.get('/workshops');
+    return dispatch(getWorkshopsSuccess(data));
+  } catch {
     return dispatch(getWorkshopsFailure());
   }
-  return dispatch(getWorkshopsSuccess(data));
 };
 
-export { getWorkshops, getFilteredWorkshops };
+export { getWorkshops, getFilteredWorkshops, getSimilarWorkshops };

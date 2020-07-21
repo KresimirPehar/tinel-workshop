@@ -17,21 +17,32 @@ import {
 } from './WorkshopCard.style';
 import dateIcon from '../../assets/date.svg';
 import timeIcon from '../../assets/time.svg';
-import getDateAndTime from '../../utils/helpers';
+import { getDateAndTime } from '../../utils/helpers';
 import filterIcons from '../../assets/filters/index';
 
-const WorkshopCard = ({ id, title, price, dateTime, category, imageUrl }) => {
+const WorkshopCard = ({
+  id,
+  userId,
+  title,
+  price,
+  dateTime,
+  category,
+  imageUrl,
+  desc,
+}) => {
   const { date, time } = getDateAndTime(dateTime);
 
   const Icon = filterIcons[category];
   const workshopDetails = {
     id,
+    userId,
     title,
     price,
     date,
     time,
     category,
     imageUrl,
+    desc,
   };
 
   return (
