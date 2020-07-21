@@ -19,6 +19,10 @@ const CardContainer = styled.div`
   top: 0;
   transition: box-shadow 1s, top 0.4s;
 
+  a {
+    text-decoration: none;
+  }
+
   :hover {
     top: -10px;
     box-shadow: 1px 2px 16px rgba(127, 127, 127, 0.35);
@@ -74,6 +78,7 @@ const DateTime = styled.div`
   display: flex;
   margin: 5px 0 10px;
   font-size: 12px;
+  color: #000;
 `;
 
 const Date = styled.div`

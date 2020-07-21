@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container,
   CardContainer,
@@ -19,17 +20,33 @@ import timeIcon from '../../assets/time.svg';
 import getDateAndTime from '../../utils/helpers';
 import filterIcons from '../../assets/filters/index';
 
-const WorkshopCard = ({ title, price, dateTime, category, imageUrl }) => {
+const WorkshopCard = ({ id, title, price, dateTime, category, imageUrl }) => {
   const { date, time } = getDateAndTime(dateTime);
 
   const Icon = filterIcons[category];
+  const workshopDetails = {
+    id,
+    title,
+    price,
+    date,
+    time,
+    category,
+    imageUrl,
+  };
 
   return (
     <Container>
       <CardContainer>
-        <ImageContainer>
-          <BackgroundImage alt='workshop' src={imageUrl} />
-        </ImageContainer>
+        <Link
+          to={{
+            pathname: `/workshops/${id}`,
+            state: workshopDetails,
+          }}
+        >
+          <ImageContainer>
+            <BackgroundImage alt='workshop' src={imageUrl} />
+          </ImageContainer>
+        </Link>
         <Content>
           <Details>
             <Category>{Icon && <Icon />}</Category>
@@ -43,7 +60,14 @@ const WorkshopCard = ({ title, price, dateTime, category, imageUrl }) => {
                 {time}
               </Time>
             </DateTime>
-            <Title>{title}</Title>
+            <Link
+              to={{
+                pathname: `/workshops/${id}`,
+                state: workshopDetails,
+              }}
+            >
+              <Title>{title}</Title>
+            </Link>
             <Price>
               {price} <span>EUR</span>
             </Price>
