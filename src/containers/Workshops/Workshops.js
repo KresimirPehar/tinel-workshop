@@ -1,13 +1,11 @@
 import React, { useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { ClipLoader as LoadingSpinner } from 'react-spinners';
 import WorkshopCard from '../../components/WorkshopCard';
 import {
   getWorkshops,
   getFilteredWorkshops,
 } from '../../redux/actions/workshopsActions';
 import {
-  LoadingSpinnerContainer,
   Grid,
   Info,
   Container,
@@ -16,6 +14,7 @@ import {
   List,
   LoadMore,
 } from './Workshops.style';
+import LoadingSpinner from '../../components/LoadingSpinner';
 
 const Workshops = () => {
   const isLoading = useSelector((state) => state.workshops.isLoading);
@@ -44,9 +43,7 @@ const Workshops = () => {
   return (
     <Container>
       {isLoading ? (
-        <LoadingSpinnerContainer>
-          <LoadingSpinner size='50px' />
-        </LoadingSpinnerContainer>
+        <LoadingSpinner />
       ) : (
         <Grid>
           <Info>
@@ -59,6 +56,7 @@ const Workshops = () => {
             {Object.keys(displayedWorkshops).map((item, id) => (
               <WorkshopCard
                 key={id.toString()}
+                id={displayedWorkshops[item].id}
                 title={displayedWorkshops[item].title}
                 price={displayedWorkshops[item].price}
                 imageUrl={displayedWorkshops[item].imageUrl}
