@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { useSelector } from 'react-redux';
 import '@testing-library/jest-dom/extend-expect';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Workshops from '.';
 import getWorkshopItems from '../../utils/mocks';
 
@@ -22,7 +23,11 @@ describe('Workshops component', () => {
         },
       })
     );
-    render(<Workshops />);
+    render(
+      <Router>
+        <Workshops />
+      </Router>
+    );
     expect(screen.getByText(/displayed/gi)).toHaveTextContent(3);
   });
 
@@ -37,7 +42,11 @@ describe('Workshops component', () => {
         },
       })
     );
-    render(<Workshops />);
+    render(
+      <Router>
+        <Workshops />
+      </Router>
+    );
     expect(screen.getByText(/load more/gi)).toBeInTheDocument();
   });
 
@@ -52,7 +61,11 @@ describe('Workshops component', () => {
         },
       })
     );
-    render(<Workshops />);
+    render(
+      <Router>
+        <Workshops />
+      </Router>
+    );
     expect(screen.queryByText(/load more/gi)).not.toBeInTheDocument();
   });
 
@@ -68,7 +81,11 @@ describe('Workshops component', () => {
         },
       })
     );
-    render(<Workshops />);
+    render(
+      <Router>
+        <Workshops />
+      </Router>
+    );
     expect(screen.getByText(/displayed/gi)).toHaveTextContent(2);
   });
 });

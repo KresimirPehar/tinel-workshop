@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Container,
   LogoContainer,
@@ -19,9 +20,11 @@ const Header = () => {
   return (
     <Container>
       <Content>
-        <LogoContainer>
-          <img src={logoIcon} alt='logo' />
-        </LogoContainer>
+        <Link to='/'>
+          <LogoContainer>
+            <img src={logoIcon} alt='logo' />
+          </LogoContainer>
+        </Link>
         <CartStatus onClick={cartStateHandler}>
           <img src={cartIcon} alt='cart' />
           <CartTitle>Cart is empty</CartTitle>
