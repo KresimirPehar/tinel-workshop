@@ -1,10 +1,10 @@
 import styled from 'styled-components';
 import colors from '../../constants/colors';
+import { flexMixin } from '../../utils/style/mixins.style';
 
 const Container = styled.div`
+  ${flexMixin('center')}
   width: 150px;
-  display: flex;
-  align-items: center;
   cursor: pointer;
   margin-bottom: 20px;
   margin-left: 20px;
