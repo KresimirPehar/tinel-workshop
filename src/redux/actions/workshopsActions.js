@@ -26,11 +26,11 @@ const getFilteredWorkshops = (filter) => ({
 
 const getWorkshops = () => async (dispatch) => {
   dispatch(getWorkshopsRequest());
-  const result = await axios.get('/workshops');
-  if (result.statusText !== 'OK') {
+  const { data, statusText } = await axios.get('/workshops');
+  if (statusText !== 'OK') {
     return dispatch(getWorkshopsFailure());
   }
-  return dispatch(getWorkshopsSuccess(result.data));
+  return dispatch(getWorkshopsSuccess(data));
 };
 
 export { getWorkshops, getFilteredWorkshops };
