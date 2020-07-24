@@ -6,6 +6,7 @@ import {
   CLOSE_CHECKOUT_CART,
   OPEN_CHECKOUT_MODAL,
   CLOSE_CHECKOUT_MODAL,
+  ORDER_SUCCESS,
 } from '../actions/types';
 
 const initialState = {
@@ -113,6 +114,13 @@ const closeCheckoutModal = (state) => ({
   isCheckoutModalOpen: false,
 });
 
+const orderSuccess = (state) => ({
+  ...state,
+  isCheckoutModalOpen: false,
+  items: {},
+  itemsCount: 0,
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -133,6 +141,8 @@ const reducer = (state = initialState, action) => {
       return openCheckoutModal(state);
     case CLOSE_CHECKOUT_MODAL:
       return closeCheckoutModal(state);
+    case ORDER_SUCCESS:
+      return orderSuccess(state);
     default:
       return state;
   }
