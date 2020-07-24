@@ -21,8 +21,21 @@ const Content = styled.div`
 `;
 
 const CartStatus = styled.div`
-  display: flex;
+  ${flexMixin('center')}
   cursor: pointer;
+`;
+
+const CartIcons = styled.div`
+  position: relative;
+`;
+
+const CartIcon = styled.img``;
+
+const CartIndicatorIcon = styled.img`
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
+  position: absolute;
+  top: -3px;
+  right: -5px;
 `;
 
 const CartTitle = styled.div`
@@ -32,7 +45,7 @@ const CartTitle = styled.div`
 `;
 
 const CartContainer = styled.div`
-  width: ${(props) => (props.isCartOpen ? '300px' : 0)};
+  width: ${(props) => (props.isCartOpen ? '400px' : 0)};
   height: 100vh;
   transition: width 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   position: absolute;
@@ -44,6 +57,9 @@ export {
   Container,
   LogoContainer,
   Content,
+  CartIcons,
+  CartIcon,
+  CartIndicatorIcon,
   CartStatus,
   CartTitle,
   CartContainer,
