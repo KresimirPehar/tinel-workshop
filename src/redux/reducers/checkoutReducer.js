@@ -4,12 +4,15 @@ import {
   DELETE_CHECKOUT_ITEM,
   OPEN_CHECKOUT_CART,
   CLOSE_CHECKOUT_CART,
+  OPEN_CHECKOUT_MODAL,
+  CLOSE_CHECKOUT_MODAL,
 } from '../actions/types';
 
 const initialState = {
   items: {},
   itemsCount: 0,
   isOpen: false,
+  isCheckoutModalOpen: false,
 };
 
 const addWorkshopToCart = (state, workshopDetails, numberOfTickets) => {
@@ -99,6 +102,17 @@ const deleteCheckoutItem = (state, id) => {
   };
 };
 
+const openCheckoutModal = (state) => ({
+  ...state,
+  isOpen: false,
+  isCheckoutModalOpen: true,
+});
+
+const closeCheckoutModal = (state) => ({
+  ...state,
+  isCheckoutModalOpen: false,
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_TO_CART:
@@ -115,6 +129,10 @@ const reducer = (state = initialState, action) => {
       return updateNumberOfTickets(state, action.id, action.numberOfTickets);
     case DELETE_CHECKOUT_ITEM:
       return deleteCheckoutItem(state, action.id);
+    case OPEN_CHECKOUT_MODAL:
+      return openCheckoutModal(state);
+    case CLOSE_CHECKOUT_MODAL:
+      return closeCheckoutModal(state);
     default:
       return state;
   }

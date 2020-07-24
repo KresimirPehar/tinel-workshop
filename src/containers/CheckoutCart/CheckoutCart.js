@@ -1,5 +1,6 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   Container,
   Heading,
@@ -11,7 +12,10 @@ import {
 } from './CheckoutCart.style';
 import CartStatus from '../CartStatus';
 import closeCheckoutIcon from '../../assets/closeCheckout.svg';
-import { closeCheckoutCart } from '../../redux/actions/checkoutActions';
+import {
+  closeCheckoutCart,
+  openCheckoutModal,
+} from '../../redux/actions/checkoutActions';
 import CheckoutItem from '../CheckoutItem';
 
 const CheckoutCart = () => {
@@ -24,6 +28,8 @@ const CheckoutCart = () => {
   );
 
   const closeCheckoutHandler = () => dispatch(closeCheckoutCart());
+
+  const checkoutModalHandler = () => dispatch(openCheckoutModal());
 
   return (
     <Container>
@@ -51,7 +57,9 @@ const CheckoutCart = () => {
           <span>{subtotal}</span> EUR
         </Subtotal>
       </SubtotalContainer>
-      <CheckoutButton>Checkout</CheckoutButton>
+      <Link to='/'>
+        <CheckoutButton onClick={checkoutModalHandler}>Checkout</CheckoutButton>
+      </Link>
     </Container>
   );
 };

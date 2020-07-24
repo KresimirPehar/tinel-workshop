@@ -15,15 +15,19 @@ import {
   LoadMore,
 } from './Workshops.style';
 import LoadingSpinner from '../../components/LoadingSpinner';
+import CheckoutModal from '../CheckoutModal';
 
 const Workshops = () => {
+  const dispatch = useDispatch();
   const isLoading = useSelector((state) => state.workshops.isLoading);
   const allWorkshops = useSelector((state) => state.workshops.workshopsData);
   const filteredWorkshops = useSelector(
     (state) => state.workshops.filteredWorkshopsData
   );
   const filter = useSelector((state) => state.filters.appliedFilter);
-  const dispatch = useDispatch();
+  const isCheckoutModal = useSelector(
+    (state) => state.checkout.isCheckoutModalOpen
+  );
 
   useEffect(() => {
     // fetch all workshops initially
@@ -68,11 +72,12 @@ const Workshops = () => {
               />
             ))}
             {Object.keys(displayedWorkshops).length > 8 && (
-              <LoadMore>Load More</LoadMore>
+              <LoadMore>Load More // to be done</LoadMore>
             )}
           </List>
         </Grid>
       )}
+      {isCheckoutModal && <CheckoutModal />}
     </Container>
   );
 };
