@@ -21,6 +21,7 @@ describe('Workshops component', () => {
         filters: {
           appliedFilter: 'all',
         },
+        checkout: {},
       })
     );
     render(
@@ -40,6 +41,7 @@ describe('Workshops component', () => {
         filters: {
           appliedFilter: 'all',
         },
+        checkout: {},
       })
     );
     render(
@@ -59,6 +61,7 @@ describe('Workshops component', () => {
         filters: {
           appliedFilter: 'all',
         },
+        checkout: {},
       })
     );
     render(
@@ -79,6 +82,7 @@ describe('Workshops component', () => {
         filters: {
           appliedFilter: 'design',
         },
+        checkout: {},
       })
     );
     render(
