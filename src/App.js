@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import Layout from './components/Layout';
 import Container from './App.style';
-import Filters from './components/Filters';
+import Filters from './containers/Filters';
 import Workshops from './containers/Workshops';
 import WorkshopDetails from './containers/WorkshopDetails';
 import Footer from './components/Footer';
