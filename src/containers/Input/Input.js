@@ -96,8 +96,6 @@ const Input = ({
         {date && <DateIcon alt='date' src={dateIcon} />}
         <input
           id='input'
-          //   value={inputState.value}
-          //   onChange={textChangeHandler}
           value={inputValue}
           onChange={(e) => setInputValue(e.target.value)}
           onBlur={textChangeHandler}
