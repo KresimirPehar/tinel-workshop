@@ -13,6 +13,7 @@ const Error = styled.div`
   font-weight: bold;
   font-size: 12px;
   margin-left: 10px;
+  width: ${(props) => props.isLetters && '50%'};
 `;
 
 const Label = styled.div`

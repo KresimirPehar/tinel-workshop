@@ -86,7 +86,11 @@ const Input = ({
         <Heading>
           <Label>{label}</Label>
           {!inputState.isValid && inputState.value.length > 0 && (
-            <Error>{`Your ${label.toLowerCase()} contains invalid symbol!`}</Error>
+            <Error isLetters={letters}>
+              {letters
+                ? `Your ${label.toLowerCase()} contains invalid symbol! If you are Elon Musk's kid, please contact us!`
+                : `Your ${label.toLowerCase()} contains invalid symbol!`}
+            </Error>
           )}
         </Heading>
         {date && <DateIcon alt='date' src={dateIcon} />}
