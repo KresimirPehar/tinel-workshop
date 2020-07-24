@@ -9,7 +9,7 @@ import {
   CartIndicatorIcon,
   CartTitle,
 } from './CartStatus.style';
-import { openCheckout } from '../../redux/actions/checkoutActions';
+import { openCheckoutCart } from '../../redux/actions/checkoutActions';
 
 const CartStatus = () => {
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const CartStatus = () => {
   const isCartOpen = useSelector((state) => state.checkout.isOpen);
 
   // dispatch only if the cart is closed
-  const openCheckoutHandler = () => !isCartOpen && dispatch(openCheckout());
+  const openCheckoutHandler = () => !isCartOpen && dispatch(openCheckoutCart());
 
   const renderCartTitle = () => {
     if (!checkoutItemsCount) return <span>Cart is Empty</span>;

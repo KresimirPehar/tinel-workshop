@@ -11,7 +11,7 @@ import {
 } from './CheckoutCart.style';
 import CartStatus from '../CartStatus';
 import closeCheckoutIcon from '../../assets/closeCheckout.svg';
-import { closeCheckout } from '../../redux/actions/checkoutActions';
+import { closeCheckoutCart } from '../../redux/actions/checkoutActions';
 import CheckoutItem from '../CheckoutItem';
 
 const CheckoutCart = () => {
@@ -23,7 +23,7 @@ const CheckoutCart = () => {
     0
   );
 
-  const closeCheckoutHandler = () => dispatch(closeCheckout());
+  const closeCheckoutHandler = () => dispatch(closeCheckoutCart());
 
   return (
     <Container>

@@ -1,7 +1,7 @@
 import {
   ADD_TO_CART,
-  OPEN_CHECKOUT,
-  CLOSE_CHECKOUT,
+  OPEN_CHECKOUT_CART,
+  CLOSE_CHECKOUT_CART,
   UPDATE_NUMBER_OF_TICKETS,
   DELETE_CHECKOUT_ITEM,
 } from './types';
@@ -12,12 +12,12 @@ const addWorkshopToCart = (workshopDetails, numberOfTickets) => ({
   numberOfTickets,
 });
 
-const openCheckout = () => ({
-  type: OPEN_CHECKOUT,
+const openCheckoutCart = () => ({
+  type: OPEN_CHECKOUT_CART,
 });
 
-const closeCheckout = () => ({
-  type: CLOSE_CHECKOUT,
+const closeCheckoutCart = () => ({
+  type: CLOSE_CHECKOUT_CART,
 });
 
 const updateNumberOfTickets = (id, numberOfTickets) => ({
@@ -33,8 +33,8 @@ const deleteCheckoutItem = (id) => ({
 
 export {
   addWorkshopToCart,
-  openCheckout,
-  closeCheckout,
+  openCheckoutCart,
+  closeCheckoutCart,
   updateNumberOfTickets,
   deleteCheckoutItem,
 };

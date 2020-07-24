@@ -1,9 +1,9 @@
 import {
   ADD_TO_CART,
-  OPEN_CHECKOUT,
-  CLOSE_CHECKOUT,
   UPDATE_NUMBER_OF_TICKETS,
   DELETE_CHECKOUT_ITEM,
+  OPEN_CHECKOUT_CART,
+  CLOSE_CHECKOUT_CART,
 } from '../actions/types';
 
 const initialState = {
@@ -68,12 +68,12 @@ const addWorkshopToCart = (state, workshopDetails, numberOfTickets) => {
   };
 };
 
-const openCheckout = (state) => ({
+const openCheckoutCart = (state) => ({
   ...state,
   isOpen: true,
 });
 
-const closeCheckout = (state) => ({
+const closeCheckoutCart = (state) => ({
   ...state,
   isOpen: false,
 });
@@ -107,10 +107,10 @@ const reducer = (state = initialState, action) => {
         action.workshopDetails,
         action.numberOfTickets
       );
-    case OPEN_CHECKOUT:
-      return openCheckout(state);
-    case CLOSE_CHECKOUT:
-      return closeCheckout(state);
+    case OPEN_CHECKOUT_CART:
+      return openCheckoutCart(state);
+    case CLOSE_CHECKOUT_CART:
+      return closeCheckoutCart(state);
     case UPDATE_NUMBER_OF_TICKETS:
       return updateNumberOfTickets(state, action.id, action.numberOfTickets);
     case DELETE_CHECKOUT_ITEM:
