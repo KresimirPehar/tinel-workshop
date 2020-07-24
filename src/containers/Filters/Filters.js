@@ -1,7 +1,7 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Container, Title, FilterList } from './Filters.style';
-import Filter from '../Filter';
+import Filter from '../../components/Filter';
 import applyFilter from '../../redux/actions/filterActions';
 
 const Filters = () => {
