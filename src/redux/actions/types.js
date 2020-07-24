@@ -12,3 +12,10 @@ export const GET_WORKSHOP_USER_FAILURE = 'GET_WORKSHOP_USER_FAILURE';
 
 // filters types
 export const APPLY_FILTER = 'APPLY_FILTER';
+
+// checkout types
+export const ADD_TO_CART = 'ADD_TO_CART';
+export const OPEN_CHECKOUT = 'OPEN_CHECKOUT';
+export const CLOSE_CHECKOUT = 'CLOSE_CHECKOUT';
+export const UPDATE_NUMBER_OF_TICKETS = 'UPDATE_NUMBER_OF_TICKETS';
+export const DELETE_CHECKOUT_ITEM = 'DELETE_CHECKOUT_ITEM';

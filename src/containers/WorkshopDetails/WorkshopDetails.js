@@ -32,6 +32,7 @@ import dateIcon from '../../assets/date.svg';
 import timeIcon from '../../assets/time.svg';
 import { getSimilarWorkshops } from '../../redux/actions/workshopsActions';
 import WorkshopCard from '../../components/WorkshopCard';
+import { addWorkshopToCart } from '../../redux/actions/checkoutActions';
 
 const WorkshopDetails = ({ location }) => {
   const {
@@ -53,6 +54,7 @@ const WorkshopDetails = ({ location }) => {
   const similarWorkshops = useSelector(
     (state) => state.workshops.similarWorkshops
   );
+
   const [numberOfTickets, setNumberOfTickets] = useState(1);
 
   useEffect(() => {
@@ -63,6 +65,9 @@ const WorkshopDetails = ({ location }) => {
   const CategoryIcon = filterIcons[category];
 
   const updateSubtotal = (e) => setNumberOfTickets(e.target.value);
+
+  const addToCartHandler = () =>
+    dispatch(addWorkshopToCart(location.state, numberOfTickets));
 
   return (
     <>
@@ -104,12 +109,17 @@ const WorkshopDetails = ({ location }) => {
                     <span>{price}</span> EUR
                   </Price>
                   <NumberOfTickets>
-                    <select onChange={(e) => updateSubtotal(e)}>
+                    <select
+                      value={numberOfTickets}
+                      onChange={(e) => updateSubtotal(e)}
+                    >
                       {[...Array(10).keys()].map((item, key) => (
                         <option key={key.toString()}>{item + 1}</option>
                       ))}
                     </select>
-                    <AddButton>Add to Cart</AddButton>
+                    <AddButton onClick={addToCartHandler}>
+                      Add to Cart
+                    </AddButton>
                   </NumberOfTickets>
                   <SubtotalContainer>
                     Subtotal: {price * numberOfTickets} EUR

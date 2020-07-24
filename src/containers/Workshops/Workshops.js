@@ -64,6 +64,7 @@ const Workshops = () => {
                 dateTime={displayedWorkshops[item].date}
                 category={displayedWorkshops[item].category}
                 desc={displayedWorkshops[item].desc}
+                numberOfTickets={1}
               />
             ))}
             {Object.keys(displayedWorkshops).length > 8 && (
