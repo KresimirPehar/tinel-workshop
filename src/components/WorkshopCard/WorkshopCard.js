@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
 import {
   Container,
   CardContainer,
@@ -19,6 +20,7 @@ import dateIcon from '../../assets/date.svg';
 import timeIcon from '../../assets/time.svg';
 import { getDateAndTime } from '../../utils/helpers';
 import filterIcons from '../../assets/filters/index';
+import { addWorkshopToCart } from '../../redux/actions/checkoutActions';
 
 const WorkshopCard = ({
   id,
@@ -29,7 +31,9 @@ const WorkshopCard = ({
   category,
   imageUrl,
   desc,
+  numberOfTickets,
 }) => {
+  const dispatch = useDispatch();
   const { date, time } = getDateAndTime(dateTime);
 
   const Icon = filterIcons[category];
@@ -43,7 +47,12 @@ const WorkshopCard = ({
     category,
     imageUrl,
     desc,
+    numberOfTickets,
+    workshopSubtotal: price * numberOfTickets,
   };
+
+  const addToCartHandler = () =>
+    dispatch(addWorkshopToCart(workshopDetails, 1));
 
   return (
     <Container>
@@ -83,7 +92,9 @@ const WorkshopCard = ({
               {price} <span>EUR</span>
             </Price>
           </Details>
-          <AddButton type='button'>Add to Cart</AddButton>
+          <AddButton type='button' onClick={addToCartHandler}>
+            Add to Cart
+          </AddButton>
         </Content>
       </CardContainer>
     </Container>
